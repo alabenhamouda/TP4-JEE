@@ -34,8 +34,7 @@ public class ControleurServlet extends HttpServlet {
 		ProduitModele pm = new ProduitModele();
 		String motCle = request.getParameter("motCle");
 		pm.setMotCle(motCle);
-		pm.setCatalogue(cat);
-		pm.loadProduits();
+		pm.setProduits(cat.getProduitsParMotCle(motCle));
 		request.setAttribute("modele", pm);
 		request.getRequestDispatcher("ProduitsView.jsp").forward(request, response);
 	}
